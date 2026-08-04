@@ -1,1 +1,0 @@
-# NixosEarthLatitude7490

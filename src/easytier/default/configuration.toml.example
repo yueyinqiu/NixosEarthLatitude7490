@@ -1,0 +1,30 @@
+dhcp = true
+# ipv4 = "10.126.126.1/24"
+
+listeners = [
+    "tcp://0.0.0.0:40090",
+    "udp://0.0.0.0:40090",
+    "wg://0.0.0.0:55459",
+    "ws://0.0.0.0:55459/",
+    "quic://0.0.0.0:49104",
+    "wss://0.0.0.0:49104/",
+    "faketcp://0.0.0.0:44353",
+]
+tcp_whitelist = []
+udp_whitelist = []
+
+[network_identity]
+network_name = "xxxxxxxxxxxxxxx"
+network_secret = "xxxxxxxxxxxxxxx"
+
+[[peer]]
+uri = "tcp://39.98.83.46:51010/"
+
+[[peer]]
+uri = "tcp://et-hk.clickor.click:11010"
+
+[[peer]]
+uri = "tcp://us01.225284.xyz:11010"
+
+[flags]
+dev_name = "easytier-default"
