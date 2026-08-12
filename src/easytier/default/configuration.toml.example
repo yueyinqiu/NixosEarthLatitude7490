@@ -1,15 +1,7 @@
 dhcp = true
 # ipv4 = "10.126.126.1/24"
 
-listeners = [
-    "tcp://0.0.0.0:40090",
-    "udp://0.0.0.0:40090",
-    "wg://0.0.0.0:55459",
-    "ws://0.0.0.0:55459/",
-    "quic://0.0.0.0:49104",
-    "wss://0.0.0.0:49104/",
-    "faketcp://0.0.0.0:44353",
-]
+listeners = []
 tcp_whitelist = []
 udp_whitelist = []
 
@@ -17,14 +9,25 @@ udp_whitelist = []
 network_name = "xxxxxxxxxxxxxxx"
 network_secret = "xxxxxxxxxxxxxxx"
 
-[[peer]]
-uri = "tcp://39.98.83.46:51010/"
+peer = [
+  # https://github.com/orgs/EasyTier/discussions/2429
+  { uri = "tcp://161.33.207.13:51010" },
 
-[[peer]]
-uri = "tcp://et-hk.clickor.click:11010"
+  # https://github.com/orgs/EasyTier/discussions/1848#discussioncomment-16793868
+  { uri = "tcp://et-hk.clickor.click:11010" },
 
-[[peer]]
-uri = "tcp://us01.225284.xyz:11010"
+  # https://github.com/orgs/EasyTier/discussions/1848#discussioncomment-17758277
+  { uri = "tcp://us01.225284.xyz:11010" },
+
+  # https://ruixuan.online/uptime/easytier
+  { uri = "tcp://225284.xyz:11010" },
+  { uri = "tcp://183.230.36.171:11010" },
+  { uri = "tcp://easytier.weiai.org.cn:11010" },
+  { uri = "txt://net.qicwken.top" },
+  { uri = "wss://et.chinokou.cn" },
+
+  # https://uptime.lctn.site/status/easytier
+]
 
 [flags]
 dev_name = "easytier-default"
