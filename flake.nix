@@ -7,12 +7,17 @@
       url = "github:AshleyYakeley/NixVirt/v0.6.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    driftwm = {
+      url = "github:malbiruk/driftwm";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       nixpkgs,
       NixVirt,
+      driftwm,
       ...
     }:
     {
@@ -20,6 +25,7 @@
         system = "x86_64-linux";
         specialArgs = {
           nixvirt = NixVirt;
+          driftwm = driftwm;
         };
         modules = [
           ./src
