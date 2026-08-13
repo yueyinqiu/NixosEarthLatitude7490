@@ -25,7 +25,6 @@
         system = "x86_64-linux";
         specialArgs = {
           nixvirt = NixVirt;
-          driftwm = driftwm;
         };
         modules = [
           ./src
