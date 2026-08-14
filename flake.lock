@@ -21,41 +21,7 @@
         "type": "github"
       }
     },
-    "driftwm": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1786626074,
-        "narHash": "sha256-Ei1jgbODhYNkGYsG7hC36oE5l1aX8Le8fUjvBFOFRvU=",
-        "owner": "malbiruk",
-        "repo": "driftwm",
-        "rev": "dae15750482fa8f07cafeb6ca46bb13fe9807fde",
-        "type": "github"
-      },
-      "original": {
-        "owner": "malbiruk",
-        "repo": "driftwm",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
-      "locked": {
-        "lastModified": 1773646010,
-        "narHash": "sha256-iYrs97hS7p5u4lQzuNWzuALGIOdkPXvjz7bviiBjUu8=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "5b2c2d84341b2afb5647081c1386a80d7a8d8605",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
       "locked": {
         "lastModified": 1785828668,
         "narHash": "sha256-8fsyqeO+mJqvIzeO4xIpgJe/f7MTbbVTEC6RT6WSXNs=",
@@ -74,8 +40,7 @@
     "root": {
       "inputs": {
         "NixVirt": "NixVirt",
-        "driftwm": "driftwm",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       }
     }
   },
