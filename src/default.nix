@@ -2,7 +2,6 @@
   pkgs,
   nixvirt,
   config,
-  driftwm,
   ...
 }:
 {
@@ -11,7 +10,6 @@
     ./nix-daemon-proxy
     ./easytier
     nixvirt.nixosModules.default
-    driftwm.nixosModules.default
     ./lib/dotnet-build.nix
   ];
 
@@ -117,7 +115,6 @@
   services.openssh.enable = true;
   services.udisks2.enable = true;
   programs.niri.enable = true;
-  programs.driftwm.enable = true;
 
   services.flatpak.enable = true;
 
