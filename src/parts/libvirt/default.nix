@@ -9,7 +9,6 @@
   ];
 
   virtualisation.libvirt.enable = true;
-  virtualisation.libvirt.package = pkgs.libvirt;
   
   virtualisation = {
     libvirtd = {
