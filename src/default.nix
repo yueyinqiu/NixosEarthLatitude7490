@@ -10,7 +10,6 @@
     ./nix-daemon-proxy
     ./easytier
     nixvirt.nixosModules.default
-    ./lib/dotnet-build.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
