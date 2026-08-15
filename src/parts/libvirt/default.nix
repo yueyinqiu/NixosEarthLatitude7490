@@ -1,4 +1,5 @@
 {
+  pkgs,
   nixvirt,
   ...
 }:
@@ -8,10 +9,10 @@
   ];
 
   virtualisation.libvirt.enable = true;
+  virtualisation.libvirt.package = pkgs.libvirt;
   
   virtualisation = {
     libvirtd = {
-      enable = true;
       qemu.swtpm.enable = true;
     };
     spiceUSBRedirection.enable = true;
