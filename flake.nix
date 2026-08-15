@@ -13,41 +13,36 @@
     };
   };
 
-  outputs =
-    {
-      input,
-      ...
-    }:
-    {
-      nixosConfigurations.earth-latitude7490 =
-        let
-          system = "x86_64-linux";
-        in
-        input.nixpkgs.lib.nixosSystem {
-          system = system;
-          specialArgs = {
-            nixvirt = input.NixVirt;
-            nur = input.nur.legacyPackages.${system}.repos;
-          };
-          modules = [
-            ./src
+  outputs = inputs: {
+    nixosConfigurations.earth-latitude7490 =
+      let
+        system = "x86_64-linux";
+      in
+      inputs.nixpkgs.lib.nixosSystem {
+        system = system;
+        specialArgs = {
+          nixvirt = inputs.NixVirt;
+          nur = inputs.nur.legacyPackages.${system}.repos;
+        };
+        modules = [
+          ./src
+        ];
+      };
+
+    devShells = inputs.nixpkgs.lib.genAttrs inputs.nixpkgs.lib.systems.flakeExposed (
+      system:
+      let
+        pkgs = inputs.nixpkgs.legacyPackages.${system};
+      in
+      {
+        default = pkgs.mkShell {
+          packages = [
+            (pkgs.writeShellScriptBin "dev-switch-local-proxy" ''
+              ssh localhost -t "cd '$PWD' && sudo all_proxy=socks5h://127.0.0.1:26290 nixos-rebuild switch --flake ."
+            '')
           ];
         };
-
-      devShells = input.nixpkgs.lib.genAttrs input.nixpkgs.lib.systems.flakeExposed (
-        system:
-        let
-          pkgs = input.nixpkgs.legacyPackages.${system};
-        in
-        {
-          default = pkgs.mkShell {
-            packages = [
-              (pkgs.writeShellScriptBin "dev-switch-local-proxy" ''
-                ssh localhost -t "cd '$PWD' && sudo all_proxy=socks5h://127.0.0.1:26290 nixos-rebuild switch --flake ."
-              '')
-            ];
-          };
-        }
-      );
-    };
+      }
+    );
+  };
 }
