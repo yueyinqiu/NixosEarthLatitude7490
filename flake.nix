@@ -7,29 +7,37 @@
       url = "github:AshleyYakeley/NixVirt/v0.6.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nur = {
+      url = "github:nix-community/NUR";
+    };
   };
 
   outputs =
     {
-      nixpkgs,
-      NixVirt,
+      inputs,
       ...
     }:
     {
-      nixosConfigurations.earth-latitude7490 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          nixvirt = NixVirt;
+      nixosConfigurations.earth-latitude7490 =
+        let
+          system = "x86_64-linux";
+        in
+        inputs.nixpkgs.lib.nixosSystem {
+          system = system;
+          specialArgs = {
+            nixvirt = inputs.NixVirt;
+            nur = inputs.nur.legacyPackages.${system}.repos;
+          };
+          modules = [
+            ./src
+          ];
         };
-        modules = [
-          ./src
-        ];
-      };
 
-      devShells = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed (
+      devShells = inputs.nixpkgs.lib.genAttrs inputs.nixpkgs.lib.systems.flakeExposed (
         system:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
         in
         {
           default = pkgs.mkShell {
