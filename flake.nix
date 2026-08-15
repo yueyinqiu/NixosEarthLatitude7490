@@ -15,7 +15,7 @@
 
   outputs =
     {
-      inputs,
+      input,
       ...
     }:
     {
@@ -23,21 +23,21 @@
         let
           system = "x86_64-linux";
         in
-        inputs.nixpkgs.lib.nixosSystem {
+        input.nixpkgs.lib.nixosSystem {
           system = system;
           specialArgs = {
-            nixvirt = inputs.NixVirt;
-            nur = inputs.nur.legacyPackages.${system}.repos;
+            nixvirt = input.NixVirt;
+            nur = input.nur.legacyPackages.${system}.repos;
           };
           modules = [
             ./src
           ];
         };
 
-      devShells = inputs.nixpkgs.lib.genAttrs inputs.nixpkgs.lib.systems.flakeExposed (
+      devShells = input.nixpkgs.lib.genAttrs input.nixpkgs.lib.systems.flakeExposed (
         system:
         let
-          pkgs = inputs.nixpkgs.legacyPackages.${system};
+          pkgs = input.nixpkgs.legacyPackages.${system};
         in
         {
           default = pkgs.mkShell {
