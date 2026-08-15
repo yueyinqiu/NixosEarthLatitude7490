@@ -25,7 +25,7 @@
   };
   services.upower.ignoreLid = true;
 
-  networking.hostName = "earth-latitude-7490";
+  networking.hostName = "earth-latitude7490";
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
 
