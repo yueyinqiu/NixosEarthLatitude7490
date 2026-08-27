@@ -24,8 +24,10 @@
 
   nix.settings.extra-substituters = [
     "https://yueyinqiu.cachix.org"
+    "https://nvf.cachix.org"
   ];
   nix.settings.extra-trusted-public-keys = [
     "yueyinqiu.cachix.org-1:iooLFYpS7e6KAU4+QM5Zoj6Tq76jRGo+kjeAbu8JxAc="
+    "nvf.cachix.org-1:GMQWiUhZ6ux9D5CvFFMwnc2nFrUHTeGaXRlVBXo+naI="
   ];
 }
