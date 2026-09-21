@@ -42,7 +42,41 @@
         "type": "github"
       }
     },
+    "nix-daemon-proxy": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1789748329,
+        "narHash": "sha256-3fmN+L/AJG7Ae2YHaaLWsgGF4h0uILrN1GjlhwqKwUw=",
+        "owner": "yueyinqiu",
+        "repo": "NixDaemonProxy-Nix",
+        "rev": "8b6b585211eb94e13cd5e18acd9ffe25c251a05b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yueyinqiu",
+        "repo": "NixDaemonProxy-Nix",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1789286504,
+        "narHash": "sha256-eiEK7cKZORNEvX0GeF3RtNEF/JXhgf2RqSp3230q13E=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ef34387ddd751e1ab8857adf4676492d32eb24ec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1786599213,
         "narHash": "sha256-yNJd40f11EzXBjSByCB7IPpeFFAdeoSKKM67dGkfFoU=",
@@ -58,7 +92,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1788752844,
         "narHash": "sha256-VaWGJ6+cIYN2erfSecbRV+4ljI185Ty2wUrXyvQbgOw=",
@@ -77,7 +111,7 @@
     "nur": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1788864569,
@@ -96,7 +130,8 @@
     "root": {
       "inputs": {
         "NixVirt": "NixVirt",
-        "nixpkgs": "nixpkgs",
+        "nix-daemon-proxy": "nix-daemon-proxy",
+        "nixpkgs": "nixpkgs_2",
         "nur": "nur"
       }
     }
