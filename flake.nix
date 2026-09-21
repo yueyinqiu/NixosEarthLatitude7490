@@ -37,7 +37,7 @@
         default = pkgs.mkShell {
           packages = [
             (pkgs.writeShellScriptBin "dev-switch-local-proxy" ''
-              ssh localhost -t "cd '$PWD' && sudo all_proxy=socks5h://127.0.0.1:26290 nixos-rebuild switch --flake ."
+              run0 all_proxy=socks5h://127.0.0.1:53849 nixos-rebuild switch --flake .
             '')
           ];
         };
