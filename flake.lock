@@ -47,11 +47,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1789969512,
-        "narHash": "sha256-zZv67OYBkeAYUiWGm1rkrirDQWOXOmSAxQ/jpVN9hVQ=",
+        "lastModified": 1789983145,
+        "narHash": "sha256-G9b9HFvkAma/uC0wMEnGY4dIw35oPuzR1Zhzjw3kb+E=",
         "owner": "yueyinqiu",
         "repo": "NixDaemonProxy-Nix",
-        "rev": "fad7560779c4bf0dd96042ea57075fb045f95a5b",
+        "rev": "55d5533c9176e3d8636ca39b98a0cc89c02e300e",
         "type": "github"
       },
       "original": {
