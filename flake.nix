@@ -1,15 +1,12 @@
 {
   inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     NixVirt = {
       url = "github:AshleyYakeley/NixVirt/v0.6.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur = {
-      url = "github:nix-community/NUR";
-    };
+    nur.url = "github:nix-community/NUR";
+    nix-daemon-proxy.url = "github:yueyinqiu/NixDaemonProxy-Nix";
   };
 
   outputs = inputs: {
@@ -24,6 +21,7 @@
           nur = inputs.nur.legacyPackages.${system}.repos;
         };
         modules = [
+          inputs.nix-daemon-proxy.nixosModules.nix-daemon-proxy
           ./src
         ];
       };
