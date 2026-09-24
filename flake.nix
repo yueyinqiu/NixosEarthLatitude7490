@@ -26,20 +26,10 @@
         ];
       };
 
-    devShells = inputs.nixpkgs.lib.genAttrs inputs.nixpkgs.lib.systems.flakeExposed (
-      system:
-      let
+    devShells = inputs.nixpkgs.lib.genAttrs inputs.nixpkgs.lib.systems.flakeExposed (system: {
+      default = import ./dev {
         pkgs = inputs.nixpkgs.legacyPackages.${system};
-      in
-      {
-        default = pkgs.mkShell {
-          packages = [
-            (pkgs.writeShellScriptBin "dev-switch-local-proxy" ''
-              run0 --setenv=all_proxy=socks5h://127.0.0.1:53849 nixos-rebuild switch --flake .
-            '')
-          ];
-        };
-      }
-    );
+      };
+    });
   };
 }
