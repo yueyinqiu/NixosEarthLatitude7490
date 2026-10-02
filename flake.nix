@@ -7,6 +7,7 @@
     };
     nur.url = "github:nix-community/NUR";
     nix-daemon-proxy.url = "github:yueyinqiu/NixDaemonProxy-Nix";
+    niri.url = "github:niri-wm/niri";
   };
 
   outputs = inputs: {
@@ -19,6 +20,7 @@
         specialArgs = {
           nixvirt = inputs.NixVirt;
           nur = inputs.nur.legacyPackages.${system}.repos;
+          niri = inputs.niri.packages.${system};
         };
         modules = [
           inputs.nix-daemon-proxy.nixosModules.nix-daemon-proxy
