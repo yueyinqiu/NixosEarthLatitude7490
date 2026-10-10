@@ -19,5 +19,6 @@
     # fixes i915_flip hang
     "i915.enable_psr=0"
     "i915.enable_dc=0"
+    "i915.enable_dmc=0"
   ];
 }
