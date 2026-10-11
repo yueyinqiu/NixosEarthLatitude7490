@@ -11,11 +11,10 @@
     "https://mirrors.ustc.edu.cn/nix-channels/store"
     # "https://mirrors.cqupt.edu.cn/nix-channels/store"
     # "https://mirror.sjtu.edu.cn/nix-channels/store"
-    "https://cache.nixos.org"
   ];
-  nix.settings.trusted-users = ["yueyinqiu"];
+  nix.settings.trusted-users = [ "yueyinqiu" ];
 
-  nix.settings.extra-substituters = [
+  nix.settings.trusted-substituters = [
     "https://yueyinqiu.cachix.org"
     "https://nix-community.cachix.org"
     "https://devenv.cachix.org"
@@ -23,7 +22,7 @@
     "https://niri.cachix.org"
     "https://numtide.cachix.org"
   ];
-  nix.settings.extra-trusted-public-keys = [
+  nix.settings.trusted-public-keys = [
     "yueyinqiu.cachix.org-1:iooLFYpS7e6KAU4+QM5Zoj6Tq76jRGo+kjeAbu8JxAc="
     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
