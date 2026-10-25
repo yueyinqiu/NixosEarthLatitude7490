@@ -14,7 +14,7 @@
   };
 
   outputs = inputs: {
-    nixosConfigurations.earth-latitude7490 =
+    nixosConfigurations.erthane =
       let
         system = "x86_64-linux";
       in
