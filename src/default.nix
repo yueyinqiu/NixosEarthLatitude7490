@@ -7,6 +7,6 @@
     ./parts
   ];
 
-  networking.hostName = "earth-latitude7490";
+  networking.hostName = "erthane";
   system.stateVersion = "26.05";
 }
